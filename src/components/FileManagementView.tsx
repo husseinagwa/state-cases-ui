@@ -2,15 +2,13 @@ import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Printer, Eye, Edit, Trash2, Filter, MoreHorizontal, Download } from 'lucide-react';
 import { FileRecord } from '../types';
-import { cn } from '../lib/utils';
+import { cn, LOGO_URL } from '../lib/utils';
 import FileDetailsModal from './FileDetailsModal';
 
 interface Props {
   files: FileRecord[];
   onDelete: (id: string) => void;
 }
-
-const LOGO_URL = "https://storage.googleapis.com/dala-prod-public-storage/generated-images/49fc0b0d-23d5-47bc-92e8-4fdea3533c15/state-lawsuits-authority-logo-f2ca6cb5-1774852788586.webp";
 
 export default function FileManagementView({ files, onDelete }: Props) {
   const [searchTerm, setSearchTerm] = useState('');

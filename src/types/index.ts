@@ -1,17 +1,27 @@
-export type Department = 'القضايا المدنية' | 'القضايا الإدارية' | 'قضايا الضرائب' | 'قضايا العمال' | 'قضايا التعويضات';
-
-export interface FileRecord {
+export interface CaseFile {
   id: string;
-  fileNumber: string;
+  advisorName: string;
+  division: "الاستئناف" | "الكليات" | "الجزئيات" | "التنفيذ";
+  caseNumber: string;
   year: string;
-  department: Department;
-  consultantName: string;
+  plaintiff: string;
+  defendant: string;
+  displayDate: string;
   headOpinion: string;
-  receivedDate: string;
-  subject: string;
-  status: 'نشط' | 'مؤجل' | 'محسوم' | 'تحت الدراسة';
   createdAt: string;
 }
+
+export type DivisionType = CaseFile["division"];
+
+// Alias for components using different names
+export type FileRecord = CaseFile & {
+  fileNumber: string; // for compatibility with FileManagementView
+  department: string; // for compatibility with FileManagementView
+  consultantName: string; // for compatibility with FileManagementView
+  receivedDate: string; // for compatibility with FileManagementView
+  status: 'نشط' | 'مؤجل' | 'محسوم' | 'تحت الدراسة';
+  subject: string;
+};
 
 export interface DashboardStats {
   total: number;

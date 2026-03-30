@@ -65,13 +65,13 @@ export default function DashboardView({ stats }: Props) {
               >
                 <div className="flex justify-between items-center text-sm">
                   <span className="font-semibold text-slate-700">{dept}</span>
-                  <span className="text-indigo-600 font-bold">{count} ملف</span>
+                  <span className="text-indigo-600 font-bold">{count as number} ملف</span>
                 </div>
                 <div className="h-3 bg-slate-100 rounded-full overflow-hidden">
                   <motion.div 
                     className="h-full bg-indigo-500 rounded-full"
                     initial={{ width: 0 }}
-                    animate={{ width: `${(count / (stats.total || 1)) * 100}%` }}
+                    animate={{ width: `${((count as number) / (stats.total || 1)) * 100}%` }}
                     transition={{ duration: 1, ease: "easeOut" }}
                   />
                 </div>
