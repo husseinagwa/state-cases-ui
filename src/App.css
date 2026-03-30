@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+
+:root {
+  font-family: 'Cairo', sans-serif;
+}
+
+@media print {
+  body {
+    background: white !important;
+    font-size: 10pt;
+  }
+  aside, .print-hidden, header, .print\:hidden {
+    display: none !important;
+  }
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    position: static !important;
+  }
+  table {
+    width: 100% !important;
+  }
+  tr, td, th {
+    border: 1px solid #ddd !important;
+  }
+}
